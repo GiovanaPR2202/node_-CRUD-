@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+        }
+        .main{
+            width: 600px;
+            height: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+        }
+        input{
+            width: 70%;
+            height: 30px;
+            border-radius: 10px;
+        }
+        button{
+            background-color: cornflowerblue;
+            color: white;
+            width: 150px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <input type="number" id="id_user">
+        <button id ="btn">Delete</button>
+    </div>
+
+    <script>
+        
+        const btn = document.getElementById('btn')
+
+        btn.addEventListener('click', async ()=>{
+            const id = document.getElementById('id_user').value
+
+            await fetch('http://localhost:8000/delete/ ' + id,{
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                
+            })
+            alert('Usuario deletado com sucesso')
+        })
+    </script>
+</body>
+</html>
