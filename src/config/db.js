@@ -6,10 +6,10 @@ const path = require('path')
 
 const db = mysql.createPool({
     connectionLimit: 10,
-    localAddress: 'localhost',//process.env.DB_HOST,
-    user:'root', //process.env.DB_USER,
-    password: '123456',//process.env.DB_PASS,
-    database: 'node_test',//process.env.DB_DATABASE,
+    localAddress: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_DATABASE,
     port: 3306
 
 })
